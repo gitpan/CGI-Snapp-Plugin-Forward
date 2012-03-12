@@ -1,0 +1,54 @@
+{
+   "abstract" : "A plugin for CGI::Snapp to switch cleanly to another run mode within the same app",
+   "author" : [
+      "Ron Savage <ron@savage.net.au>"
+   ],
+   "dynamic_config" : 1,
+   "generated_by" : "Module::Build version 0.4, CPAN::Meta::Converter version 2.120630",
+   "license" : [
+      "artistic_1"
+   ],
+   "meta-spec" : {
+      "url" : "http://search.cpan.org/perldoc?CPAN::Meta::Spec",
+      "version" : "2"
+   },
+   "name" : "CGI-Snapp-Plugin-Forward",
+   "prereqs" : {
+      "build" : {
+         "requires" : {
+            "Test::More" : "0.94",
+            "Test::Pod" : "1.44"
+         }
+      },
+      "configure" : {
+         "requires" : {
+            "Module::Build" : "0.38"
+         }
+      },
+      "runtime" : {
+         "requires" : {
+            "CGI" : "3",
+            "CGI::Snapp" : "1",
+            "Carp" : "1.01",
+            "Exporter" : "5.567",
+            "parent" : "0",
+            "strict" : "1.03",
+            "vars" : "1.01",
+            "warnings" : "1.03"
+         }
+      }
+   },
+   "provides" : {
+      "CGI::Snapp::Plugin::Forward" : {
+         "file" : "lib/CGI/Snapp/Plugin/Forward.pm",
+         "version" : "1.00"
+      }
+   },
+   "release_status" : "stable",
+   "resources" : {
+      "license" : [
+         "http://opensource.org/licenses/artistic-license.php"
+      ]
+   },
+   "version" : "1.00"
+}
