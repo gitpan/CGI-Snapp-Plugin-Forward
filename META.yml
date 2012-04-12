@@ -17,16 +17,17 @@ name: CGI-Snapp-Plugin-Forward
 provides:
   CGI::Snapp::Plugin::Forward:
     file: lib/CGI/Snapp/Plugin/Forward.pm
-    version: 1.00
+    version: 1.01
 requires:
   CGI: 3
-  CGI::Snapp: 1
+  CGI::Snapp: 1.01
   Carp: 1.01
   Exporter: 5.567
+  Log::Handler: 0.75
   parent: 0
   strict: 1.03
   vars: 1.01
   warnings: 1.03
 resources:
   license: http://opensource.org/licenses/artistic-license.php
-version: 1.00
+version: 1.01

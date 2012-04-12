@@ -6,6 +6,8 @@ use CGI;
 
 use CGI::Snapp::Plugin::ForwardTest;
 
+use Log::Handler;
+
 use Test::More;
 
 # -----------------------------------------------
@@ -13,9 +15,21 @@ use Test::More;
 sub test_a
 {
 	# Test 1. Don't call forward().
-	# Set debug so CGI::Snapp itself outputs log messages.
 
-	my($app)         = CGI::Snapp::Plugin::ForwardTest -> new(maxlevel => 'debug', send_output => 0);
+	my($logger) = Log::Handler -> new;
+
+	$logger -> add
+		(
+		 screen =>
+		 {
+			 maxlevel       => 'debug',
+			 message_layout => '%m',
+			 minlevel       => 'error',
+			 newline        => 1, # When running from the command line.
+		 }
+		);
+
+	my($app)         = CGI::Snapp::Plugin::ForwardTest -> new(logger => $logger, send_output => 0);
 	my($mode_source) = 'r_m';
 	my($run_mode)    = 'first_r_m';
 
@@ -41,9 +55,21 @@ sub test_a
 sub test_b
 {
 	# Test 2. Call forward().
-	# Set debug so CGI::Snapp itself outputs log messages.
 
-	my($app)         = CGI::Snapp::Plugin::ForwardTest -> new(maxlevel => 'debug', send_output => 0);
+	my($logger) = Log::Handler -> new;
+
+	$logger -> add
+		(
+		 screen =>
+		 {
+			 maxlevel       => 'debug',
+			 message_layout => '%m',
+			 minlevel       => 'error',
+			 newline        => 1, # When running from the command line.
+		 }
+		);
+
+	my($app)         = CGI::Snapp::Plugin::ForwardTest -> new(logger => $logger, send_output => 0);
 	my($mode_source) = 'r_m';
 	my($run_mode_1)  = 'second_rm';
 	my($run_mode_2)  = 'third_rm';
